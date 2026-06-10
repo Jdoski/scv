@@ -52,24 +52,7 @@ export default function GolfScramblePage() {
         <div className="mt-12 rounded-xl bg-emerald-50 p-6 text-center">
           <h2 className="text-xl font-bold text-emerald-900">Ready to play?</h2>
           <p className="mt-2 text-emerald-800">{golfEvent.signupNote}</p>
-          <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={site.links.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-emerald-700 px-6 py-2.5 font-semibold text-white transition-colors hover:bg-emerald-600"
-            >
-              Message us on Facebook
-            </a>
-            <a
-              href={site.links.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-emerald-700 px-6 py-2.5 font-semibold text-emerald-800 transition-colors hover:bg-emerald-100"
-            >
-              Message us on Instagram
-            </a>
-          </div>
+          <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row"></div>
         </div>
       </div>
     </div>
