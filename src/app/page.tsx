@@ -9,19 +9,22 @@ const features = [
   {
     href: "/rules",
     title: "Tournament Rules",
-    description: "Format, scoring, and everything you need to know before you play.",
+    description:
+      "Format, scoring, and everything you need to know before you play.",
     external: false,
   },
   {
     href: "/free-agents",
     title: "Free Agent Board",
-    description: "Looking for a partner or a team? Post here and get picked up.",
+    description:
+      "Looking for a partner or a team? Post here and get picked up.",
     external: false,
   },
   {
     href: "/golf-scramble",
     title: "Golf Scramble",
-    description: "Our annual off-the-sand outing. Food, prizes, and a great time.",
+    description:
+      "Our annual off-the-sand outing. Food, prizes, and a great time.",
     external: false,
   },
   {
@@ -40,30 +43,32 @@ export default function Home() {
     <div>
       {/* Hero — banner.jpg shows behind the gradient once added to /public */}
       <section
-        className="relative flex min-h-[70vh] items-center justify-center bg-slate-900 bg-cover bg-center"
+        className="relative flex min-h-[70vh] items-start justify-center bg-slate-900 bg-cover bg-center"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(2, 6, 23, 0.65), rgba(2, 6, 23, 0.8)), url('/banner.jpg')",
+            "linear-gradient(rgba(2, 6, 23, 0.15), rgba(2, 6, 23, 0.15)), url('/banner.jpeg')",
         }}
       >
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center text-white">
+        <div className="mx-auto w-full max-w-6xl px-6 pt-8 pb-6 text-center text-white">
           {hasLogo ? (
             <Image
               src="/logo.png"
               alt={`${site.name} logo`}
-              width={140}
-              height={140}
+              width={96}
+              height={96}
               priority
               className="mx-auto rounded-full"
             />
           ) : (
-            <VolleyballIcon className="mx-auto h-24 w-24 text-amber-400" />
+            <VolleyballIcon className="mx-auto h-16 w-16 text-amber-400" />
           )}
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-6xl">
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] sm:text-6xl">
             {site.name}
           </h1>
-          <p className="mt-4 text-lg text-slate-300 sm:text-xl">{site.tagline}.</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <p className="mt-2 text-lg text-slate-100 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] sm:text-xl">
+            {site.tagline}.
+          </p>
+          <div className="mt-5 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={site.links.volleyballLife}
               target="_blank"
@@ -110,7 +115,7 @@ export default function Home() {
                 </h2>
                 <p className="mt-2 text-sm text-slate-600">{f.description}</p>
               </Link>
-            )
+            ),
           )}
         </div>
       </section>

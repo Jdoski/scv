@@ -9,23 +9,21 @@ export function getSupabase() {
   return createClient(url, key);
 }
 
+// Public column list for free_agents — deliberately excludes delete_token,
+// which the database also blocks from public reads.
+export const FREE_AGENT_COLUMNS = "id, created_at, name, email, divisions, play_date";
+
 export type FreeAgentPost = {
   id: string;
   created_at: string;
   name: string;
   email: string;
-  division: string;
+  divisions: string[];
   play_date: string;
-  note: string | null;
 };
 
-// Formats a "YYYY-MM-DD" date string without timezone surprises.
-export function formatPlayDate(dateStr: string): string {
-  const [y, m, d] = dateStr.split("-").map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
+export type Tournament = {
+  id: string;
+  created_at: string;
+  play_date: string;
+};

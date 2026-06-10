@@ -6,6 +6,25 @@ export const metadata: Metadata = {
   description: "Official tournament rules for SCV volleyball events.",
 };
 
+// Turns any URL inside a rule into a clickable link.
+function renderWithLinks(text: string) {
+  return text.split(/(https?:\/\/\S+)/g).map((part, i) =>
+    /^https?:\/\//.test(part) ? (
+      <a
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-2 hover:text-amber-600"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function RulesPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-14">
@@ -24,7 +43,7 @@ export default function RulesPage() {
               {section.rules.map((rule, i) => (
                 <li key={i} className="flex gap-3 text-slate-700">
                   <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-400" />
-                  {rule}
+                  <span>{renderWithLinks(rule)}</span>
                 </li>
               ))}
             </ul>

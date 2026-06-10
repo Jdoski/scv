@@ -10,16 +10,20 @@ export const site = {
   },
 } as const;
 
-// Divisions shown in the Free Agent board dropdown.
-export const divisions = [
-  "Men's A",
-  "Men's BB",
-  "Men's B",
-  "Women's A",
-  "Women's BB",
-  "Women's B",
-  "Coed",
-  "Juniors",
-] as const;
+// Division setup: Saturdays run Men's + Women's, Sundays run Revco.
+const levels = ["U18", "BB", "A", "AA", "Open"] as const;
 
-export type Division = (typeof divisions)[number];
+export const mensDivisions = levels.map((l) => `Men's ${l}`);
+export const womensDivisions = levels.map((l) => `Women's ${l}`);
+export const revcoDivisions = levels.map((l) => `Revco ${l}`);
+
+export const divisions = [...mensDivisions, ...womensDivisions, ...revcoDivisions];
+
+// Every tournament automatically offers the divisions for its day of week.
+export function divisionsForDate(dateStr: string): string[] {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const day = new Date(y, m - 1, d).getDay();
+  if (day === 6) return [...mensDivisions, ...womensDivisions]; // Saturday
+  if (day === 0) return [...revcoDivisions]; // Sunday
+  return [...divisions]; // any other day: offer everything
+}
