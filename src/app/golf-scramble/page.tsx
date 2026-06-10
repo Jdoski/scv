@@ -12,13 +12,12 @@ export default function GolfScramblePage() {
     <div>
       <section className="bg-gradient-to-b from-emerald-900 to-emerald-700 py-16 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-300">
-            Off the sand, onto the green
-          </p>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
             {golfEvent.headline}
           </h1>
-          <p className="mt-5 text-lg text-emerald-100">{golfEvent.description}</p>
+          <p className="mt-5 text-lg text-emerald-100">
+            {golfEvent.description}
+          </p>
         </div>
       </section>
 
@@ -26,7 +25,10 @@ export default function GolfScramblePage() {
         <h2 className="text-2xl font-bold text-slate-900">Event Details</h2>
         <dl className="mt-6 grid gap-4 sm:grid-cols-2">
           {golfEvent.details.map((d) => (
-            <div key={d.label} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div
+              key={d.label}
+              className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+            >
               <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 {d.label}
               </dt>
@@ -35,7 +37,9 @@ export default function GolfScramblePage() {
           ))}
         </dl>
 
-        <h2 className="mt-12 text-2xl font-bold text-slate-900">What&apos;s Included</h2>
+        <h2 className="mt-12 text-2xl font-bold text-slate-900">
+          What&apos;s Included
+        </h2>
         <ul className="mt-4 space-y-3">
           {golfEvent.includes.map((item) => (
             <li key={item} className="flex gap-3 text-slate-700">
