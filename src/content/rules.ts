@@ -49,6 +49,7 @@ export const ruleSections = [
       "Tournament Directors have full discretion of determing if you are playing in the proper division",
       "You must advance to the next division if you appear in the finals of a division twice in one year",
       "You may only return to a previous division that you've been bumped up from if you spend a full year in the next division up and do not break pool",
+      "If you have played in a division and have broken pool, you cannot go down to a lower division than that division. Meaning if you break pool in AA, you are not eligible for A or BB.",
       "The sandbagging policy applies to the STRONGEST partner on the team, I.E If you have won AA twice, you are an open player, and no matter who your partner is, you must play open",
       "There are exceptions to this policy, if you would like to play with a younger family member/ help a junior start playing outdoors, please reach out to us and we will confirm if it is acceptable",
       "Please note that if we do allow you to play in a division lower than your skill level, you will be required to limit yourself accordingly, and if found out that you are playing above the level of the division, your team will be forfeited on the spot",
